@@ -1,6 +1,13 @@
 import cv2
 import depthai as dai
 
+"""
+Note: 
+This module creates a pipeline to capture frames from DepthAI RGB Camera, retrieves and displayes the frame in real 
+time using openCV, and exits when the 'q' key is pressed. There is no depth processing added in this.
+
+"""
+
 # Set up the DepthAI pipeline
 pipeline = dai.Pipeline()
 
