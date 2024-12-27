@@ -1,0 +1,5 @@
+train: ./dataset/images  # Path to training images
+val: ./dataset/images    # Path to validation images
+
+nc: 1  # Number of classes (adjust if more)
+names: ['playable_area']  # Replace with your actual class names
