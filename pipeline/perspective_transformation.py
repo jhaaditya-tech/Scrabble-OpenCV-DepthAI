@@ -1,13 +1,27 @@
-import cv2
+# perspective_transformation.py
+
 import numpy as np
 
-def apply_perspective_transform(image, corners):
-    width, height = 500, 500  # Output resolution
 
-    pts1 = np.float32(corners)
-    pts2 = np.float32([[0, 0], [width, 0], [width, height], [0, height]])
+def order_points(points):
+    """
+    Orders contour points in a consistent order: top-left, top-right, bottom-right, bottom-left.
 
-    matrix = cv2.getPerspectiveTransform(pts1, pts2)
-    warped = cv2.warpPerspective(image, matrix, (width, height))
-    
-    return warped
+    Args:
+        points (np.ndarray): Array of contour points.
+
+    Returns:
+        np.ndarray: Ordered points.
+    """
+    rect = np.zeros((4, 2), dtype="float32")
+
+    # Calculate the sum and difference of points to identify corners
+    s = points.sum(axis=1)
+    diff = np.diff(points, axis=1)
+
+    rect[0] = points[np.argmin(s)]  # Top-left point has the smallest sum
+    rect[2] = points[np.argmax(s)]  # Bottom-right point has the largest sum
+    rect[1] = points[np.argmin(diff)]  # Top-right point has the smallest difference
+    rect[3] = points[np.argmax(diff)]  # Bottom-left point has the largest difference
+
+    return rect

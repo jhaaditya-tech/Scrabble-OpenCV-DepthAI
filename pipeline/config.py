@@ -1,11 +1,19 @@
-import os
+# config.py
 
-# Paths for image storage
-RAW_IMAGE_PATH = 'dataset/images/raw_image.jpg'
-WARPED_IMAGE_PATH = 'dataset/images/warped_image.jpg'
+# config.py
+
+# config.py
+
+# Paths for captured and processed images
+CAPTURED_IMAGE_PATH = 'images/captured_board.jpg'
+WARPED_SAVE_PATH = 'images/warped_board.jpg'
 
 # YOLO Model Path
-YOLO_MODEL_PATH = 'yolov5/runs/train/exp2/weights/best.pt'
+MODEL_PATH = '/Users/adityajha/Documents/CV Thesis/Project Codes/Scrabble-OpenCV-DepthAI/yolov5_project/yolov5/runs/train/exp2/weights/best.pt'
 
-# Camera Index
-OAK_D_LITE_CAMERA_INDEX = 0
+
+# Camera configuration
+FRAME_WIDTH = 640
+FRAME_HEIGHT = 480
+
+
